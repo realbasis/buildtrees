@@ -12,6 +12,14 @@
     <name>BuildTrees</name>
     <description>BuildTrees family-tree web application (JSP/JSTL, Servlet 4.0 / Tomcat 9)</description>
 
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3.0 or later</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <properties>
         <!-- Tomcat 9 needs Java 8+, Jakarta/Angus Mail needs 11+ -->
         <maven.compiler.release>11</maven.compiler.release>

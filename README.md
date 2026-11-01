@@ -144,3 +144,16 @@ There was no database dump in either attempt, so the app was smoke-tested on Tom
 schema reconstructed from the SQL in the code (login, signup, search, profile pages, admin
 stats/charts, photo upload/preview, image servlet). Run it against a copy of the real
 `connected` database before going live, and check e-mail delivery with your SMTP settings.
+
+## License
+
+Copyright (C) 2007-2026 Lamine Ba / Real Basis LLC.
+
+BuildTrees is free software: you can redistribute it and/or modify it under the
+terms of the **GNU Affero General Public License** as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later version.
+See [`LICENSE`](LICENSE).
+
+In short: anyone may use, change and share this code, but if they distribute a
+modified version, or run one as a website or online service, they must make their
+source code available to its users under the same license.
