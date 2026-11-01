@@ -1,0 +1,253 @@
+body {
+  font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+* {margin:0 0 0 5px; padding:0}
+
+td {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+th {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+a
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+text-decoration:none;
+}
+
+a:visited
+{
+font-family:Verdana, Arial, Helvetica, sans-serif; color:blue;
+}
+
+a:hover
+{
+color:#E9B586;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:active
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+div#header
+{
+	height:45px;
+	width:400px;
+	top: 5px;
+/*	left:150px;*/
+	position: absolute;
+	border:none;
+	font-size:18px;
+}
+div#nav
+{
+	width:130px;
+	height:400px;
+	top: 60px;
+	position: absolute;
+	font-size:.75em;
+}
+
+div#nav ul
+{
+	border:0;
+	padding:0;
+	list-style-type:none;
+}
+
+div#nav li
+{
+	border-bottom:2px solid #069;
+	margin:0;
+	padding:.3em 0; text-indent:.5em;
+}
+
+div#nav div#jobposter
+{
+	margin-top:20px;
+	margin-left:5px;
+	height:auto;
+	width:128px;
+}
+div#nav div#jobposter p{
+	padding-top:2px;
+	padding-bottom:6px;
+	background-color:#DB9A55;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	margin:0;
+	text-align:center;
+}
+
+div#nav div#jobposter a{
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+div#nav div#jobposter a:hover{
+	color:#000000;
+}
+
+div#nav div#jobseeker
+{
+	margin-top:20px;
+	margin-left:5px;
+	height:auto;
+	width:128px;
+}
+div#nav div#jobseeker p{
+	padding-top:2px;
+	padding-bottom:6px;
+	background-color:#DB9A55;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	margin:0;
+	text-align:center;
+}
+div#nav div#jobseeker a{
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+div#nav div#jobseeker a:hover{
+	color:#000000;
+}
+div#nav div#navTop
+{
+	width:130px;
+	height:auto;
+}
+
+div#navTop ul {border-top:2px solid #069;}
+
+div#nav div#navBottom
+{
+	height:auto;
+	width:110px;	
+	position:absolute;
+	left:2px;
+}
+
+div#content
+{
+	width:600px;
+	height:400px;
+	top: 50px;
+	left: 150px;
+	position: absolute;
+}
+
+div#contentMain
+{
+	height:400px;
+	width:600px;
+	margin-top:5px;
+	border: 1px solid #000000;
+	overflow:visible;
+}
+
+
+div#contentFooter
+{
+	height:40px;
+	width:600px;
+	text-align:center;
+	font-size:9px;
+	position: relative;
+	margin-top:5px;
+}
+
+table {
+	border: 1px solid #666;
+}
+
+th, td {
+	
+	text-align: left;
+	vertical-align: top;
+}
+
+
+td {font-size:10px;}
+thead tr {
+  background-color: #fc0;
+}
+th.sorted {
+    background-color: orange;
+}
+th a, th a:visited {
+  color: black;
+}
+th a:hover {
+  text-decoration: underline;
+  color: black;
+}
+th.sorted a, th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+.caption {
+	font-size:16px;
+	font-weight:bold;
+}
+tr.odd {
+  background-color: #fff
+}
+tr.tableRowEven, tr.even {
+  background-color: #fea
+}
+.noborder {border:none;}
+.style1 {color: #FF0000; font-size:12px;}
+.incontact {font-size:10px; font-style:italic; font-weight:bold}
+.indicator {
+border-style:solid;
+border-color:#FF0000;
+text-align:center;
+font-size:16px;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+color:#0000FF;
+height:25px;
+width:100px;
+padding-top:6px;
+}
+div#contentMain a{
+text-decoration:none;
+}
+div#navIndicator{
+	z-index:24;
+	width:100px;
+	height:70px;
+}
+
+div#navIndicator span p{
+	position:realtive; 
+	top:30px;
+	padding: 5px 5px 5px 5px;
+	width:130px;
+	display:none;
+    border:none;
+    background-color:orange; color:#000;
+    text-align: left;
+}
+
+div#navIndicator:hover{
+
+	z-index:25;
+	font-size:larger;
+}
+
+div#navIndicator:hover span p{
+	display:block;
+}
+div#breadcrumb
+{
+	font-size:10px;
+}

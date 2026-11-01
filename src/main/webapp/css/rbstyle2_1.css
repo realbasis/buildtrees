@@ -1,0 +1,88 @@
+body {
+  font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+* {margin:0 0 0 5px; padding:0}
+
+td {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+th {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+a
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:hover
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:active
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+a:visited
+{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+div#header
+{
+	height:100px;
+	width:400px;
+	background-color:#FFFFFF;
+	top: 10px;
+	position: absolute;
+}
+div#header2
+{
+	height:100px;
+	width:300px;
+	top: 10px;
+	left:450px;
+	position: absolute;
+	border: 1px none #000000;
+}
+div#nav
+{
+	height:120px;
+	width:100px;
+	background-color:#FFFFFF;
+	top: 130px;
+	position: absolute;
+	border: 1px solid #000000;
+}
+div#login
+{
+	height:120px;
+	width:100px;
+	background-color:#FFFFFF;
+	top: 350px;
+	position: absolute;
+	border: 1px solid #000000;
+}
+div#content
+{
+	height:380px;
+	width:500px;
+	background-color:#FFFFFF;
+	top: 130px;
+	left: 200px;
+	position: absolute;
+	border: 1px solid #000000;
+}
+div#footer
+{
+	height:40px;
+	width:500px;
+	background-color:#FFFFFF;
+	top: 530px;
+	left: 200px;
+	position: absolute;
+	border: 1px solid #000000;
+}

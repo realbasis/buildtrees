@@ -1,0 +1,176 @@
+body {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+
+td {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+
+th {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+
+.bodystyle {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+
+.small {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 9px;
+}
+
+.medium {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+
+.big {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+}
+
+.xbig {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+}
+
+.expanded {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 2px;
+}
+
+.justified {
+	font-family: "Times New Roman", Times, serif;
+	text-align: justify;
+}
+
+.footer {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #999999;
+}
+
+.box1 {
+	padding: 3px;
+	border-width: thin;
+	border-style: solid;
+	border-color: #CCCCCC #666666 #666666 #CCCCCC;
+}
+
+.box2 {
+	font-style: italic;
+	word-spacing: 2pt;
+	padding: 3px;
+	border-width: thin;
+	border-style: solid;
+}
+
+div#logo
+{
+	height:100px;
+	position: absolute;
+	width:150px;
+	top: 10px;
+	left:20px;
+	padding:5px 5px 5px 5px;
+}
+
+div#adsTop
+{
+	position: absolute;
+	width:728px;
+	top:10px;
+	height:100px;
+	left:170px;
+	padding:5px 0px 5px 0px;
+}
+
+div#menu
+{
+	position: absolute;
+	width:150px;
+	top:120px;
+	height:400px;
+	left:20px;
+}
+
+div#content
+{
+	border:1px solid #000;
+	position: absolute;
+	width:600px;
+	top:120px;
+	height:400px;
+	left:170px;
+}
+
+div#ads
+{
+	position: absolute;
+	width:120px;
+	top:120px;
+	height:400px;
+	left:778px;
+	padding:0;
+}
+
+/*
+div#clubs
+{
+	border:1px solid #000;
+	position: absolute;
+	width:500px;
+	top:120px;
+	height:100px;
+	left:175px;
+}
+
+div#props
+{
+	border:1px solid #000;
+	position: absolute;
+	width:500px;
+	top:300px;
+	height:300px;
+	left:175px;
+}
+*/
+
+div#menu div#loginposter
+{
+	margin-top:10px;
+	margin-left:10px;
+	height:auto;
+	width:130px;
+	border:2px solid #000;
+}
+div#menu div#loginposter p{
+	padding-top:2px;
+	padding-bottom:2px;
+	font-size:9px;
+	font-weight:bold;
+	text-decoration:none;
+	margin:0;
+	text-align:center;
+}
+div#menu div#loginposter a{
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.noborder 
+{
+	border:none;
+}
+.style1 
+{
+	color: #FF0000;
+	font-size:12px;
+}

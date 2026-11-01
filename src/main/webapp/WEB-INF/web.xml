@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>BuildTrees</display-name>
+
+    <!-- Default DataSource for <sql:query>/<sql:update> in the JSPs (JNDI name, see META-INF/context.xml) -->
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.sql.dataSource</param-name>
+        <param-value>jdbc/LinkedDB</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.locale</param-name>
+        <param-value>fr_SN</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>servlet.ResourceManagerListener</listener-class>
+    </listener>
+
+    <!-- Person photo by id: keeps the existing control/doGetImg.jsp?id=... URLs working -->
+    <servlet>
+        <servlet-name>PeopleImageServlet</servlet-name>
+        <servlet-class>servlet.PeopleImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PeopleImageServlet</servlet-name>
+        <url-pattern>/control/doGetImg.jsp</url-pattern>
+    </servlet-mapping>
+
+    <!-- Photo of the person currently held in the session TreeBean -->
+    <servlet>
+        <servlet-name>GetImgServlet</servlet-name>
+        <servlet-class>servlet.GetImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetImgServlet</servlet-name>
+        <url-pattern>/GetImgServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Placeholder for scheduled jobs (declared but not started, as in the original app) -->
+    <servlet>
+        <servlet-name>TasksServlet</servlet-name>
+        <servlet-class>servlet.TasksServlet</servlet-class>
+    </servlet>
+
+    <!-- Photo upload pages: enable the standard Servlet multipart parser (replaces javazoom UploadBean).
+         The 250 KB business limit is enforced in api.ImageUpload. -->
+    <servlet>
+        <servlet-name>doImg</servlet-name>
+        <jsp-file>/control/doImg.jsp</jsp-file>
+        <multipart-config>
+            <max-file-size>2097152</max-file-size>
+            <max-request-size>4194304</max-request-size>
+            <file-size-threshold>262144</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doImg</servlet-name>
+        <url-pattern>/control/doImg.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>doImg2</servlet-name>
+        <jsp-file>/control/doImg2.jsp</jsp-file>
+        <multipart-config>
+            <max-file-size>2097152</max-file-size>
+            <max-request-size>4194304</max-request-size>
+            <file-size-threshold>262144</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>doImg2</servlet-name>
+        <url-pattern>/control/doImg2.jsp</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- JSP fragments are include-only: never serve their source -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>jsp-fragments</web-resource-name>
+            <url-pattern>*.jspf</url-pattern>
+        </web-resource-collection>
+        <auth-constraint/>
+    </security-constraint>
+
+    <resource-ref>
+        <description>JNDI DataSource for the BuildTrees (Linked) database</description>
+        <res-ref-name>jdbc/LinkedDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+</web-app>

@@ -1,0 +1,25 @@
+# Local settings for running BuildTrees on your own Tomcat.
+#
+# Copy this file to:
+#   Windows:  %USERPROFILE%\.buildtrees\buildtrees.properties
+#             (e.g. C:\Users\lamin\.buildtrees\buildtrees.properties)
+#   Linux:    ~/.buildtrees/buildtrees.properties
+# and fill in your values. It is read when Tomcat starts (restart Tomcat after
+# changing it). Keep it out of version control.
+
+# --- Local MySQL / MariaDB ----------------------------------------------------
+db.driver=com.mysql.cj.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/connected?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
+db.user=buildtrees
+db.password=CHANGE_ME
+
+# --- Mail ---------------------------------------------------------------------
+# false = do not send, just write "[mail disabled] ..." to the Tomcat log.
+mail.enabled=false
+mail.smtp.host=
+mail.smtp.port=587
+mail.smtp.user=
+mail.smtp.password=
+
+# --- Admin page (control/doLoginOwner.jsp -> admin.jsp) -------------------------
+admin.password=CHANGE_ME
