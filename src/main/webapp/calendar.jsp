@@ -50,6 +50,7 @@ input
 	<c:set var="notifyme" value="${row.Notifyme}" />
 </c:forEach>
 <!-- InstanceEndEditable -->
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body>
@@ -339,13 +340,6 @@ input
 	</div>
 </div>
 </td></tr></table>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-544679-2";
-urchinTracker();
-</script>
 
 </body>
 <!-- InstanceEnd --></html>

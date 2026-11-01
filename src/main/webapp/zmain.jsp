@@ -118,6 +118,7 @@ function MM_swapImage() { //v3.0
 </c:if>
 
 <!-- InstanceEndEditable -->
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body onload="document.getElementById('theText').focus(); createAutoComplete();">
@@ -184,13 +185,6 @@ function MM_swapImage() { //v3.0
 	<!-- InstanceEndEditable -->
 </div>
 </td></tr></table>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-544679-2";
-urchinTracker();
-</script>
 
 </body>
 <!-- InstanceEnd --></html>

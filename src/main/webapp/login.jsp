@@ -166,45 +166,16 @@ div#content table td
 </style>
 <script type="text/javascript" src="js/util-functions.js"></script>
 <script type="text/javascript" src="js/clear-default-text.js"></script>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body onload="document.getElementById('theText').focus(); createAutoComplete();">
 
-<div id="menu">
-<table width="100%">
-	<tr>
-    	<td align="left">
-        	<div id="menuLeft">
-            	<a href="index.jsp" class="menuFont">Home</a> | <a href="aboutus.jsp" class="menuFont">About Us</a>
-            </div>
-        </td>
-        <td align="right">
-        <c:if test="${accountID == null}">
-        	<div id="menuRight">
-            	<table>
-                	<tr>
-                        <td>
-                        	<div style="margin-left:20px;font-style:italic; font-size:10px">
-                        		Real Basis LLC copyright @ 2011
-                        	</div>
-                        </td>
-                    </tr>
-                </table>
-			</div>
-        </c:if>
-        </td>
-    </tr>
-</table>
-</div>
+<%@ include file="/WEB-INF/jspf/masthead.jspf" %>
 
 <div id="menu2">
 	<table style="width:700px">
     	<tr>
-            <td valign="middle" style="width:280px;">
-               	<div id="menuLeftb">
-	   				<a href="index.jsp"><img style="border:none; text-decoration:none" src="images/buildtrees_logo2.png"></a>
-		        </div>
-            </td>
 			<td valign="middle" align="left">
 				<h3 style="text-transform:uppercase">
                 	Login to modify people's profiles
@@ -249,6 +220,7 @@ div#content table td
 	</table>
 </div>
 
+<%@ include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 
 </html>

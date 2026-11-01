@@ -1,0 +1,37 @@
+<%-- Shared masthead for pages that do not use the old Dreamweaver templates.
+     The logo keeps its natural size; its mint background matches the band.
+     Needs control/stdTags.jspf to be included by the page. --%>
+<c:set var="mhURI" value="${pageContext.request.requestURI}" />
+<header class="masthead">
+	<div class="wrap">
+		<a class="brand" href="index.jsp"><img src="images/buildtrees_logo2.png" width="250" height="60" alt="BuildTrees home" /></a>
+
+		<nav class="topnav" aria-label="Main">
+			<a href="index.jsp" <c:if test="${fn:endsWith(mhURI, '/index.jsp') || fn:endsWith(mhURI, '/')}">aria-current="page"</c:if>>Home</a>
+			<c:choose>
+				<c:when test="${accountID == null}">
+					<a href="aboutus.jsp" <c:if test="${fn:endsWith(mhURI, '/aboutus.jsp')}">aria-current="page"</c:if>>About us</a>
+					<c:if test="${!fn:endsWith(mhURI, '/login.jsp')}">
+						<form class="login" action="control/authenticate.jsp" method="post">
+							<label class="sr-only" for="mhEmail">Email</label>
+							<input id="mhEmail" type="email" name="email" placeholder="Email" autocomplete="username" required />
+							<label class="sr-only" for="mhPassword">Password</label>
+							<input id="mhPassword" type="password" name="password" placeholder="Password" autocomplete="current-password" required />
+							<input type="hidden" name="goodBrowser" value="true" />
+							<button type="submit" name="Login" value="Login">Log in</button>
+						</form>
+					</c:if>
+					<a href="signup.jsp" <c:if test="${fn:endsWith(mhURI, '/signup.jsp')}">aria-current="page"</c:if>>Sign up</a>
+				</c:when>
+				<c:otherwise>
+					<a href="zmain.jsp">My tree</a>
+					<a href="zmembers.jsp">Members</a>
+					<a href="events.jsp">Alarms</a>
+					<a href="settings.jsp">Settings</a>
+					<span class="greeting">Welcome, <strong><c:out value="${myname}" /></strong></span>
+					<a href="control/logout.jsp">Log out</a>
+				</c:otherwise>
+			</c:choose>
+		</nav>
+	</div>
+</header>

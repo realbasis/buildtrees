@@ -19,6 +19,7 @@
 </c:if>
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body>
@@ -157,13 +158,6 @@
 	</div>
 </div>
 </td></tr></table>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-544679-2";
-urchinTracker();
-</script>
 
 </body>
 <!-- InstanceEnd --></html>

@@ -1,0 +1,8 @@
+<%-- Shared footer. Needs control/stdTags.jspf. --%>
+<jsp:useBean id="footerNow" class="java.util.Date" />
+<footer class="site-footer">
+	<div class="wrap">
+		<span>&copy; <fmt:formatDate value="${footerNow}" pattern="yyyy" /> Real Basis LLC</span>
+		<span><a href="aboutus.jsp">About BuildTrees</a> &nbsp; <a href="contactus.jsp">Contact us</a> &nbsp; <a href="policy.jsp">Privacy policy</a></span>
+	</div>
+</footer>

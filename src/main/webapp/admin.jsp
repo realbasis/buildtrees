@@ -50,6 +50,7 @@
     <jsp:setProperty name="adminBean" property="people" value="${people.rows}" />
     <jsp:setProperty name="adminBean" property="sharers" value="${sharers.rows}" />
     </title>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body>

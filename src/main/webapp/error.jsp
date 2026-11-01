@@ -39,6 +39,7 @@ catch (Exception e){
 	session.invalidate();
 %>
 </c:if>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body>

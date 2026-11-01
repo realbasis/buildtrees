@@ -14,7 +14,8 @@
         <title>BuildTrees - search people</title>
         <%@include file="control/stdTags.jspf" %>
         <link href="css/default.css" rel="stylesheet" type="text/css">
-    </head>
+    <%@ include file="/WEB-INF/jspf/head.jspf" %>
+</head>
     <body>
         <div class="search">
             <form action="index.jsp" method="get">

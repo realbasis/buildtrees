@@ -1,0 +1,611 @@
+/*
+  BuildTrees design system
+  ------------------------
+  One stylesheet for every page. Load it LAST in <head> (after css/linked.css and
+  any page <style> block) so it wins over the old Dreamweaver styles.
+
+  The palette is built around the logo (images/buildtrees_logo2.png), whose mint
+  background #99FF99 is part of the image: the masthead uses the same mint so the
+  logo sits on it seamlessly. Images are never resized or recoloured.
+
+  Sections
+    1. Tokens
+    2. Base
+    3. Forms and buttons
+    4. Masthead (new pages) + #banner/#menu (old template pages)
+    5. Page frames of the old templates (#zmain, #main, #content, #vmenu)
+    6. Content helpers (cards, tables, messages, legacy classes)
+    7. Home / search page
+    8. Footer
+    9. Small screens
+*/
+
+/* 1. Tokens ---------------------------------------------------------------- */
+:root {
+	--mint: #99ff99;        /* logo background, masthead band */
+	--mint-edge: #7fe38a;
+	--leaf: #0f6b2f;        /* links, primary actions */
+	--leaf-dark: #0a4f22;
+	--leaf-tint: #e2f3e5;
+	--sap: #6fcf7f;         /* branch lines, photo rings */
+	--bark: #74552f;        /* relationship names, dates */
+	--ink: #1f2a24;         /* text */
+	--ink-soft: #46564c;
+	--ground: #f1f6f2;      /* page background */
+	--paper: #ffffff;
+	--line: #d5e3d8;
+	--alert: #b42318;
+	--alert-tint: #fdecea;
+	--ok-tint: #e3f6e7;
+
+	--serif: "Literata", Georgia, "Times New Roman", serif;
+	--sans: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
+
+	--radius: 6px;
+	--page: 72rem;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+	margin: 0;
+	background: var(--ground);
+	color: var(--ink);
+	font: 1rem/1.55 var(--sans);
+}
+
+/* the old pages set Times 12px on cells and small text classes */
+td, th, .bodystyle, .medium, .expanded, .justified, .box1, .box2, .big, .xbig {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+}
+.small { font-family: inherit; font-size: .85rem; }
+.big { font-size: 1.1rem; }
+.xbig { font-size: 1.5rem; }
+
+h1, h2, h3 { font-family: var(--serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin: 0 0 .5rem; }
+h2 { font-size: 1.5rem; font-weight: 700; margin: 1.25rem 0 .5rem; }
+h3 { font-size: 1.2rem; font-weight: 700; margin: 1rem 0 .5rem; text-transform: none !important; }
+
+a { color: var(--leaf); text-underline-offset: 2px; }
+a:visited { color: var(--leaf); }
+a:hover { color: var(--leaf-dark); }
+a img { border: 0; }
+
+:focus-visible { outline: 3px solid var(--leaf); outline-offset: 2px; }
+
+img { max-width: 100%; height: auto; }
+/* the logo keeps its natural size everywhere */
+img[src*="buildtrees_logo"] { max-width: none; width: 250px; height: 60px; display: block; }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 1.25rem 0; }
+
+.wrap {
+	width: 100%;
+	max-width: 52rem;
+	margin: 0 auto;
+	padding: 0 1.25rem;
+}
+
+.sr-only {
+	position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+	overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* 3. Forms and buttons ----------------------------------------------------- */
+input[type=text], input[type=password], input[type=email], input[type=search],
+input[type=number], input[type=date], input[type=tel], input[type=url],
+input:not([type]), select, textarea {
+	max-width: 100%;
+	padding: .45rem .6rem;
+	border: 1px solid #9cc9a6;
+	border-radius: 4px;
+	background: var(--paper);
+	color: var(--ink);
+	font: inherit;
+	font-size: .95rem;
+	line-height: 1.3;
+	vertical-align: middle;
+}
+textarea { min-height: 6rem; }
+select { padding-right: 1.6rem; }
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus,
+input:not([type]):focus, select:focus, textarea:focus {
+	border-color: var(--leaf);
+	outline: 2px solid var(--leaf);
+	outline-offset: 0;
+}
+input::placeholder, textarea::placeholder { color: #7b8a80; }
+
+input[type=submit], input[type=button], input[type=reset], button, .btn {
+	display: inline-block;
+	padding: .5rem 1rem;
+	border: 2px solid var(--leaf);
+	border-radius: var(--radius);
+	background: var(--leaf);
+	color: #fff;
+	font: 700 .95rem/1.2 var(--sans);
+	text-decoration: none;
+	cursor: pointer;
+	vertical-align: middle;
+}
+input[type=submit]:hover, input[type=button]:hover, button:hover, .btn:hover {
+	background: var(--leaf-dark);
+	border-color: var(--leaf-dark);
+	color: #fff;
+}
+input[type=submit]:disabled, input[type=button]:disabled, button:disabled {
+	opacity: .5;
+	cursor: not-allowed;
+}
+/* quieter look for secondary actions */
+input[type=reset], .btn-secondary,
+input[type=button][value*="ancel"], input[type=submit][value*="ancel"],
+input[type=button][value*="nnuler"], input[type=submit][value*="nnuler"] {
+	background: transparent;
+	color: var(--leaf);
+}
+input[type=reset]:hover, .btn-secondary:hover,
+input[type=button][value*="ancel"]:hover, input[type=submit][value*="ancel"]:hover {
+	background: var(--leaf-tint);
+	color: var(--leaf-dark);
+}
+input[type=radio], input[type=checkbox] { accent-color: var(--leaf); width: 1rem; height: 1rem; vertical-align: middle; }
+input[type=file] { font: inherit; font-size: .9rem; max-width: 100%; }
+
+label { cursor: pointer; }
+
+/* 4. Masthead --------------------------------------------------------------- */
+/* New markup: /WEB-INF/jspf/masthead.jspf */
+.masthead {
+	background: var(--mint);
+	border-bottom: 1px solid var(--mint-edge);
+}
+.masthead .wrap {
+	max-width: var(--page);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: .75rem 1.5rem;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+}
+.brand { display: block; line-height: 0; }
+
+.topnav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem 1.25rem;
+	font-size: .95rem;
+}
+.topnav a, .appnav a { color: var(--leaf-dark); font-weight: 700; text-decoration: none; }
+.topnav a:hover, .appnav a:hover { text-decoration: underline; color: var(--leaf-dark); }
+.topnav [aria-current], .appnav [aria-current] {
+	color: var(--ink);
+	font-weight: 700;
+	border-bottom: 3px solid var(--leaf);
+	padding-bottom: .1rem;
+}
+
+.login {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .4rem;
+	margin: 0;
+}
+.login input[type=email], .login input[type=password], .login input[type=text] {
+	width: 11rem;
+	border-color: #5fbf6d;
+	background: #f7fff7;
+	font-size: .9rem;
+}
+.login button { padding: .42rem .9rem; font-size: .9rem; }
+.greeting { color: var(--ink); }
+
+/* Old template pages: the logo + menu row is div#banner (private/public templates)
+   and the green top bar is div#menu (standalone pages). Both become the mint band. */
+#banner, div#menu {
+	background: var(--mint) !important;
+	border-bottom: 1px solid var(--mint-edge);
+	color: var(--ink) !important;
+	height: auto !important;
+	margin: 0 !important;
+	width: 100%;
+}
+#banner > table, div#menu > table {
+	width: 100%;
+	max-width: var(--page);
+	margin: 0 auto;
+	padding: .5rem 1.25rem;       /* same box as .masthead .wrap */
+	border-collapse: separate;    /* padding is ignored on collapsed tables */
+	border-spacing: 0;
+}
+#banner td, div#menu td { vertical-align: middle; padding: 0; }
+#banner table table { border-spacing: 0; }
+#banner p, div#menu p { margin: 0; }
+div#menu a, div#menu a:hover, div#menu .menuFont, div#menu th {
+	color: var(--leaf-dark) !important;
+	font-size: .95rem !important;
+	font-weight: 700;
+	text-decoration: none !important;
+}
+div#menu a:hover { text-decoration: underline !important; }
+div#menu input[type=text], div#menu input[type=password] { width: 10rem; font-size: .9rem; }
+
+/* menu fragments of the private pages (zmainHeadFrag*.jsp etc.) */
+.appnav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: .4rem 1.25rem;
+	margin: 0;
+	font-size: .95rem;
+}
+#banner #parents { margin: 0 !important; width: auto !important; }
+
+/* 5. Page frames of the old templates ------------------------------------- */
+body > table.noborder, body > table[align] {
+	width: 100% !important;
+	margin: 0 !important;
+	float: none !important;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body > table.noborder > tbody > tr > td, body > table[align] > tbody > tr > td { padding: 0; }
+
+div#zmain, div#main { width: auto !important; height: auto !important; }
+
+/* private template: everything after the banner is the page body */
+div#zmain > div:not(#banner) {
+	width: auto !important;
+	max-width: var(--page);
+	margin: 0 auto !important;
+	padding: 1.75rem 1.25rem;
+}
+
+/* public template: sidebar (#vmenu) + main column inside div#content */
+div#main > div#content, div#content {
+	background: transparent !important;
+	max-width: var(--page);
+	margin: 0 auto !important;
+	padding: 1.75rem 1.25rem;
+}
+div#main > div#content > table { width: 100%; border-collapse: separate; border-spacing: 1.25rem 0; margin: 0 -1.25rem; }
+div#main > div#content > table > tbody > tr > td { vertical-align: top; }
+
+div#content div#vmenu {
+	width: 15rem !important;
+	padding: 1rem 1.1rem !important;
+	margin: 0 !important;
+	border: 1px solid var(--line) !important;
+	border-radius: var(--radius);
+	background: var(--paper) !important;
+	font-size: .95rem;
+}
+div#content div#vmenu table { width: 100%; }
+div#content div#vmenu li { list-style: none; margin: 0 0 .35rem; }
+div#content div#vmenu a { color: var(--leaf) !important; font-weight: 700; text-decoration: none; }
+div#content div#vmenu a:hover { text-decoration: underline; }
+div#content div#vmenu p {
+	font-family: var(--sans) !important;
+	font-size: .9rem !important;
+	color: var(--ink-soft) !important;
+	font-style: normal !important;
+	text-align: left !important;
+}
+div#content div#vmenu input[type=text], div#content div#vmenu input[type=password] {
+	width: 100%;
+	font-size: .95rem !important;
+}
+div#content div#vmenu td[align=center] { text-align: left; }
+div#content div#vmenu2 { width: 15rem !important; text-align: left; margin: 1rem 0 0 !important; padding: 0 !important; }
+
+/* white content panels of the public template */
+div#content div#crt, .panel {
+	width: auto !important;
+	background: var(--paper) !important;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 1.25rem 1.5rem;
+}
+div#rvmenu:empty { display: none; }
+
+div#footnotes {
+	max-width: var(--page);
+	margin: 0 auto;
+	padding: 1.25rem;
+	border-top: 1px solid var(--line);
+	text-align: left;
+	color: #5b6b61;
+}
+div#footnotes p { font-size: .85rem !important; margin: 0; }
+
+/* standalone pages (login, signup, about, details, new family): div#menu2 holds content */
+div#menu2 {
+	max-width: var(--page);
+	margin: 0 auto;
+	padding: 1.25rem;
+}
+div#menu2 > table { width: 100% !important; }
+
+/* 6. Content helpers ------------------------------------------------------- */
+.card {
+	background: var(--paper);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 1.25rem 1.5rem;
+}
+
+/* error / info messages used by the old pages */
+.style1, .errors, p.errorText, div.errorText {
+	color: var(--alert) !important;
+	font-size: .95rem !important;
+	font-weight: 700;
+}
+.style1:empty { display: none; }
+p.errorText, div.errorText { background: var(--alert-tint) !important; color: var(--alert) !important; padding: .5rem .75rem; border-radius: 4px; }
+p.successText, div.successText { background: var(--ok-tint) !important; color: var(--leaf-dark) !important; padding: .5rem .75rem; border-radius: 4px; font-weight: 700; }
+
+/* the old "screen"/"cell" boxes of the tree pages */
+.screen, .screen2, .screen3, .cell {
+	border: 1px solid var(--line) !important;
+	border-radius: var(--radius);
+	background: var(--paper) !important;
+}
+.screen4 { border: 1px solid var(--alert) !important; border-radius: var(--radius); background: var(--alert-tint) !important; }
+.textZone { width: auto; font-size: .95rem; }
+.image { background: var(--leaf-tint) !important; border-radius: var(--radius); }
+
+/* data tables built with class "list" or a header row */
+table.list { border-collapse: collapse; width: 100%; }
+table.list th, table.list td { padding: .5rem .6rem; border-bottom: 1px solid var(--line); text-align: left; }
+table.list th { font-weight: 700; color: var(--ink-soft); }
+
+/* Inline styles left in the old pages ----------------------------------------
+   The pages still carry 2008-era inline colours and fixed box heights. These
+   rules map them onto the palette so they read as part of the same design. */
+/* neon green panels -> soft leaf panels */
+#zmain > div:not(#banner) [style*="#33FF33"], #zmain > div:not(#banner) [style*="#33ff33"],
+#zmain > div:not(#banner) [style*="#00FF33"], #zmain > div:not(#banner) [style*="lime"],
+#zmain > div:not(#banner) [style*="#99FF99"], #zmain > div:not(#banner) [style*="#99ff99"],
+#content [style*="#33FF33"], #content [style*="lime"], #content [style*="#99FF99"],
+#menu2 [style*="#33FF33"], #menu2 [style*="lime"], #menu2 [style*="#99FF99"] {
+	background-color: var(--leaf-tint) !important;
+	border-radius: var(--radius);
+}
+/* panels size to their content instead of a fixed 350px */
+#zmain > div:not(#banner) div[style*="#33FF33"], #zmain > div:not(#banner) div[style*="#33ff33"] {
+	display: inline-block;
+	width: auto !important;
+	padding: 1rem 1.25rem !important;
+	margin-bottom: 1rem;
+}
+/* old solid borders (black, green, blue) -> hairline in the palette */
+[style*="border:solid"]:not(input):not(textarea):not(select),
+[style*="border: solid"]:not(input):not(textarea):not(select) {
+	border-color: var(--line) !important;
+	border-radius: var(--radius);
+}
+/* grey photo/box placeholders */
+[style*="#CCCCCC"]:not(img), [style*="#cccccc"]:not(img) { background-color: #e2efe5 !important; }
+/* dark green bars */
+[style*="background-color:#006600"] { background-color: var(--leaf) !important; }
+/* fixed heights overflow once text is a readable size */
+div[style*="height:"]:not([style*="height:0"]) { height: auto !important; min-height: 0; }
+/* inline text colours */
+[style*="color:green"], [style*="color:#006600"], [style*="color: green"] { color: var(--leaf) !important; }
+[style*="color:blue"], [style*="color:#0000FF"], [style*="color:#0000ff"] { color: var(--leaf-dark) !important; }
+[style*="color:red"], [style*="color:#FF0000"] { color: var(--alert) !important; }
+[style*="color:orange"] { color: var(--bark) !important; }
+[style*="color:gray"], [style*="color:#999999"], [style*="color:#666666"] { color: #5b6b61 !important; }
+.memberBox { color: var(--bark) !important; font-size: .9rem; letter-spacing: .02em; }
+input[type=file] { color: var(--ink) !important; }
+/* the old uppercase headings */
+[style*="text-transform:uppercase"] { text-transform: none !important; }
+/* fixed-width boxes from the page style blocks may shrink on small screens */
+.ligne, .tableau, .paint, .screen { max-width: 100%; }
+.paint { border: 1px solid var(--line) !important; border-radius: var(--radius); }
+
+/* 7. Home / search page ---------------------------------------------------- */
+.search { padding: 3rem 0 2rem; }
+.search h1 { margin: 0 0 .35rem; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.01em; }
+.search .lede { margin: 0 0 1.5rem; max-width: 36rem; font-size: 1.05rem; }
+.search label { display: block; margin-bottom: .35rem; font-weight: 700; }
+.field-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.name-box { position: relative; flex: 1 1 18rem; }
+#theText.big-input, .search #theText {
+	width: 100%;
+	padding: .8rem 1rem;
+	border: 2px solid var(--leaf);
+	border-radius: var(--radius);
+	background: var(--paper);
+	font: 500 1.25rem/1.2 var(--serif);
+	color: var(--ink);
+}
+.search #theText::placeholder { font-family: var(--sans); font-size: 1.05rem; }
+.search .btn { padding: .8rem 1.25rem; font-size: 1rem; }
+.hint { margin: .6rem 0 0; font-size: .9rem; color: #4c5c52; }
+
+/* autocomplete list (classes used by the page scripts) */
+#theDiv {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(100% + 4px);
+	z-index: 10;
+	visibility: hidden;
+	max-height: 18rem;
+	overflow-y: auto;
+	border: 1px solid var(--line) !important;
+	border-radius: var(--radius);
+	background: var(--paper) !important;
+	box-shadow: 0 6px 18px rgba(15, 107, 47, .15);
+}
+#theDiv div { padding: .45rem 1rem; font-family: var(--serif); cursor: pointer; }
+.AutoCompleteBackground { background: var(--paper); }
+.AutoCompleteHighlight { background: #dff7e3; }
+
+.results { padding-bottom: 3rem; }
+.results-head {
+	margin: 0 0 1rem;
+	padding-bottom: .5rem;
+	border-bottom: 1px solid var(--line);
+	font-size: .95rem;
+	color: #4c5c52;
+}
+.people { list-style: none; margin: 0; padding: 0; }
+.person {
+	display: grid;
+	grid-template-columns: 4rem 1fr;
+	gap: 0 1rem;
+	padding: 1.25rem 0;
+	border-bottom: 1px solid var(--line);
+}
+.person:last-child { border-bottom: 0; }
+.photo {
+	width: 4rem;
+	height: 4rem;
+	max-width: none;
+	border-radius: 50%;
+	object-fit: cover;
+	background: #e2efe5;
+	border: 2px solid var(--sap);
+}
+.person h2 { margin: 0; font-size: 1.4rem; line-height: 1.25; }
+.person h2 a { color: var(--ink); text-decoration: none; }
+.person h2 a:hover { color: var(--leaf); text-decoration: underline; }
+.facts { margin: .15rem 0 0; color: var(--ink-soft); }
+.facts .date { color: var(--bark); }
+.more { margin-left: .35rem; font-size: .9rem; white-space: nowrap; }
+
+/* relatives hang off a vertical branch line */
+.branch {
+	list-style: none;
+	margin: .75rem 0 0;
+	padding: 0 0 0 1.1rem;
+	border-left: 2px solid var(--sap);
+}
+.branch li { position: relative; padding: .2rem 0 .2rem .4rem; }
+.branch li::before {
+	content: "";
+	position: absolute;
+	left: -1.1rem;
+	top: 1rem;
+	width: .9rem;
+	border-top: 2px solid var(--sap);
+}
+.branch li:last-child::after {
+	content: "";
+	position: absolute;
+	left: calc(-1.1rem - 2px);
+	top: calc(1rem + 2px);
+	bottom: 0;
+	border-left: 2px solid var(--ground);
+}
+.relation { display: inline-block; min-width: 5.5rem; color: var(--bark); font-weight: 700; }
+.relative { font-family: var(--serif); font-weight: 500; }
+.relative-facts { color: var(--ink-soft); font-size: .95rem; }
+
+.empty { padding: 2rem 0 3rem; max-width: 36rem; }
+.empty h2 { margin: 0 0 .4rem; font-size: 1.4rem; }
+.empty p { margin: 0; }
+
+/* pager links printed by the ui:pager tag */
+.pagelinks {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .35rem;
+	margin: 1.5rem 0 0 !important;
+	font-size: .95rem !important;
+}
+.pagelinks a, .pagelinks strong {
+	display: inline-block;
+	min-width: 2.2rem;
+	padding: .3rem .55rem;
+	border-radius: 4px;
+	text-align: center;
+}
+.pagelinks a { border: 1px solid var(--line); background: var(--paper); text-decoration: none; }
+.pagelinks a:hover { border-color: var(--leaf); }
+.pagelinks strong { background: var(--leaf); color: #fff; }
+
+/* 8. Footer ---------------------------------------------------------------- */
+.site-footer {
+	border-top: 1px solid var(--line);
+	padding: 1.25rem 0 2rem;
+	font-size: .85rem;
+	color: #5b6b61;
+}
+.site-footer .wrap { max-width: var(--page); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.footer { font-family: inherit; font-size: .85rem; color: #5b6b61; }
+
+/* 9. Small screens --------------------------------------------------------- */
+@media (max-width: 48rem) {
+	/* fixed widths from the old page styles give way to the screen width */
+	.ligne, .tableau, .paint, .cell, .zhead, .screen, div#content div#crt { width: auto !important; }
+	.paint { margin-left: 0 !important; margin-right: 0 !important; }
+	div[style*="width:"], table[style*="width:"], p[style*="width:"], td[style*="width:"] {
+		width: auto !important;
+		max-width: 100%;
+	}
+	[style*="margin-left:40px"], [style*="margin:30px 10px 60px 50px"] { margin-left: 0 !important; }
+	/* anything that still cannot shrink (wide forms) scrolls inside the page body */
+	div#zmain > div:not(#banner), div#content, div#menu2 { overflow-x: auto; max-width: 100vw; position: relative; }
+	div#zmain { max-width: 100vw; }
+	/* the templates wrap the whole page in a table, which would grow to its widest child */
+	body > table.noborder, body > table.noborder > tbody, body > table.noborder > tbody > tr,
+	body > table.noborder > tbody > tr > td,
+	body > table[align], body > table[align] > tbody, body > table[align] > tbody > tr,
+	body > table[align] > tbody > tr > td {
+		display: block;
+		width: 100% !important;
+		max-width: 100vw;
+	}
+	#banner { overflow: hidden; }
+	/* old fixed-width layouts stack instead of overflowing */
+	div#main > div#content > table, div#main > div#content > table > tbody,
+	div#main > div#content > table > tbody > tr, div#main > div#content > table > tbody > tr > td {
+		display: block;
+		width: 100% !important;
+		margin: 0;
+	}
+	div#main > div#content > table > tbody > tr > td { margin-bottom: 1rem; }
+	div#content div#vmenu, div#content div#vmenu2 { width: auto !important; }
+	#banner > table, #banner > table > tbody, #banner > table > tbody > tr, #banner > table > tbody > tr > td,
+	div#menu > table, div#menu > table > tbody, div#menu > table > tbody > tr, div#menu > table > tbody > tr > td {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	#banner img[src*="buildtrees_logo"] { margin: 0 auto; }
+	.appnav { justify-content: center; }
+	div#menu2 > table, div#menu2 > table > tbody, div#menu2 > table > tbody > tr, div#menu2 > table > tbody > tr > td {
+		display: block;
+		width: 100% !important;
+	}
+}
+
+@media (max-width: 40rem) {
+	.masthead .wrap { justify-content: center; }
+	.topnav { width: 100%; justify-content: center; }
+	.login { order: 3; width: 100%; flex-wrap: nowrap; }
+	.login input[type=email], .login input[type=password], .login input[type=text] { width: auto; min-width: 0; flex: 1 1 0; }
+	.search { padding-top: 2rem; }
+	.field-row .btn { flex: 1 1 auto; }
+	.person { grid-template-columns: 3rem 1fr; }
+	.photo { width: 3rem; height: 3rem; }
+	.relation { display: block; min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* { transition: none !important; animation: none !important; }
+}

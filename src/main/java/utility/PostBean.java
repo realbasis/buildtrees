@@ -187,6 +187,8 @@ public class PostBean extends Object implements Serializable {
             
         // Get all customized family events
         eventsMap = this.treeBean.getEventsMap();
+        if(eventsMap == null)               // not loaded yet in this session
+            eventsMap = new SortedMap[0];
         
         // get today
         Calendar calToday = Calendar.getInstance();

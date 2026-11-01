@@ -35,6 +35,7 @@ p
 }
 </style>
 <!-- InstanceEndEditable -->
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body onload="document.getElementById('theText').focus(); createAutoComplete();">
@@ -65,9 +66,11 @@ p
 									<table width="100%">
 										<tr>
 											<td align="right" valign="top">
-												<p style="font-size:16px; font-weight:bold">
-													<a href="index.jsp">Home</a> | <a href="aboutus.jsp">About Us</a> | Contact Us
-												</p>
+												<nav class="appnav" aria-label="Main">
+													<a href="index.jsp">Home</a>
+													<a href="aboutus.jsp">About us</a>
+													<span aria-current="page">Contact us</span>
+												</nav>
 											</td>
 										</tr>
 									</table>
@@ -96,7 +99,7 @@ p
 							<td><img src="images/ireland.png" width="150"></td>
 							<td align="center" style="text-align:justify">
 								<div style="margin-left:25px; margin-top:20px">
-									<h1 style="text-decoration:underline">Contact Us</h1>
+									<h1>Contact us</h1>
 									<p>
 										Email: <a href="mailto:buildtrees@realbasis.com">buildtrees@realbasis.com</a>
 									</p>
@@ -114,13 +117,6 @@ p
 	<!-- InstanceEndEditable -->
 </div>
 </td></tr></table>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-544679-2";
-urchinTracker();
-</script>
 
 </body>
 <!-- InstanceEnd --></html>

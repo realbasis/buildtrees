@@ -4,6 +4,7 @@
 <head>
     <title></title>
     <%@include file="/control/stdTags.jspf" %>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 <body>
 

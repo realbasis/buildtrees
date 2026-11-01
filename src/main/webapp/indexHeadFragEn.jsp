@@ -5,13 +5,15 @@
 
 <c:set var="theURL" value="${pageContext.request.requestURL}" />
 
-								<div id="parents" style="margin-top:15px">
+								<div id="parents">
 									<table width="100%">
 										<tr>
 											<td align="right" valign="top">
-												<p style="font-size:16px; font-weight:bold">
-													Home | <a href="aboutus.jsp">About Us</a> | <a href="contactus.jsp">Contact Us</a>
-												</p>
+												<nav class="appnav" aria-label="Account">
+													<span aria-current="page">Home</span>
+													<a href="aboutus.jsp">About Us</a>
+													<a href="contactus.jsp">Contact Us</a>
+												</nav>
 											</td>
 										</tr>
 									</table>

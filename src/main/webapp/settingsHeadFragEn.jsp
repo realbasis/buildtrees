@@ -5,7 +5,7 @@
 
 <c:set var="theURL" value="${pageContext.request.requestURL}" />
 
-								<div id="parents" style="margin-top:15px;">
+								<div id="parents">
 									<table width="100%">
 										<tr>
 										<!-- comment language selection
@@ -28,9 +28,13 @@
 											</td>
 										-->
 											<td align="right" valign="top" colspan="2">
-												<p style="font-size:16px; font-weight:bold">
-													<a href="events.jsp">Alarms</a> | <a href="zmembers.jsp">Members</a> | <a href="zmain.jsp">My Tree</a> | Settings | <a href="control/logout.jsp">Logout</a>
-												</p>
+												<nav class="appnav" aria-label="Account">
+													<a href="events.jsp">Alarms</a>
+													<a href="zmembers.jsp">Members</a>
+													<a href="zmain.jsp">My Tree</a>
+													<span aria-current="page">Settings</span>
+													<a href="control/logout.jsp">Logout</a>
+												</nav>
 											</td>
 										</tr>
 									</table>

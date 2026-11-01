@@ -5,13 +5,15 @@
 
 <c:set var="theURL" value="${pageContext.request.requestURL}" />
 
-								<div id="parents" style="margin-top:15px">
+								<div id="parents">
 									<table width="100%">
 										<tr>
 											<td align="right" valign="top">
-												<p style="font-size:16px; font-weight:bold">
-													My Tree | <a href="settings.jsp">Settings</a> | <a href="control/logout.jsp">Logout</a>
-												</p>
+												<nav class="appnav" aria-label="Account">
+													<span aria-current="page">My Tree</span>
+													<a href="settings.jsp">Settings</a>
+													<a href="control/logout.jsp">Logout</a>
+												</nav>
 											</td>
 										</tr>
 									</table>

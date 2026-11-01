@@ -215,47 +215,16 @@ input, select
 	font-size:10px;
 }
 </style>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body onload="document.getElementById('theText').focus(); createAutoComplete();">
 
-<div id="menu">
-<table width="100%">
-	<tr>
-    	<td align="left">
-        	<div id="menuLeft">
-            	<a href="index.jsp" class="menuFont">Home</a> | <a href="aboutus.jsp" class="menuFont">About Us</a>
-            </div>
-        </td>
-        <td align="right">
-        	<div id="menuRight">
-            	<table>
-                	<tr>
-                        <th class="menuFont">Welcome to ${myname} | </th>
-                        <td class="menuFont">
-                        	<a href="control/logout.jsp">Logout</a>
-                        </td>
-                        <td>
-                        	<div style="margin-left:20px;font-style:italic; font-size:10px">
-                        		Real Basis LLC copyright @ 2011
-                        	</div>
-                        </td>
-                    </tr>
-                </table>
-			</div>
-        </td>
-    </tr>
-</table>
-</div>
+<%@ include file="/WEB-INF/jspf/masthead.jspf" %>
 
 <div id="menu2">
 	<table style="width:800px;">
     	<tr>
-            <td valign="middle" style="width:280px;">
-               	<div id="menuLeftb">
-	   				<a href="index.jsp"><img style="border:none; text-decoration:none" src="images/buildtrees_logo2.png"></a>
-		        </div>
-            </td>
 			<td valign="middle" align="left">
 			</td>
         </tr>
@@ -476,6 +445,7 @@ input, select
 	</table>
 </div>
 
+<%@ include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 
 </html>

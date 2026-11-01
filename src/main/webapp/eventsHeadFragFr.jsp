@@ -5,13 +5,15 @@
 
 <c:set var="theURL" value="${pageContext.request.requestURL}" />
 
-								<div id="parents" style="margin-top:15px;">
+								<div id="parents">
 									<table width="100%">
 										<tr>
 											<td align="right" valign="top" colspan="2">
-												<p style="font-size:16px; font-weight:bold">
-													Evènements & Anniversaires Familiaux | <a href="zmain.jsp">Mon Arbre</a> | <a href="control/logout.jsp">Déconnexion</a>
-												</p>
+												<nav class="appnav" aria-label="Account">
+													<span aria-current="page">Evènements & Anniversaires Familiaux</span>
+													<a href="zmain.jsp">Mon Arbre</a>
+													<a href="control/logout.jsp">Déconnexion</a>
+												</nav>
 											</td>
 										</tr>
 									</table>

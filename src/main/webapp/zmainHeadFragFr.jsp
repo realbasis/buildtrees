@@ -5,7 +5,7 @@
 
 <c:set var="theURL" value="${pageContext.request.requestURL}" />
 
-								<div id="parents" style="margin-top:15px">
+								<div id="parents">
 									<table width="100%">
 										<tr>
 										<!-- comment language selection
@@ -63,15 +63,11 @@
 												</form>
 											</td>
 											<td align="right" valign="top">
-												<p style="font-size:16px; font-weight:bold">
-													<!--
-													Dashboard | <a href="">Settings</a> | <a href="">Sync</a> | <a href="">Reminders</a> | <a href="">Help</a> | <a href="control/logout.jsp">Logout</a>
-													-->
-													<!--
-													My Tree | <a href="events.jsp">Events</a> | <a href="settings.jsp">Settings</a> | <a href="control/logout.jsp">Logout</a>
-													-->
-													<a href="events.jsp">Alarms</a> | <a href="settings.jsp">Paramétrage</a> | <a href="control/logout.jsp">Déconnexion</a>
-												</p>
+												<nav class="appnav" aria-label="Account">
+													<a href="events.jsp">Alarms</a>
+													<a href="settings.jsp">Paramétrage</a>
+													<a href="control/logout.jsp">Déconnexion</a>
+												</nav>
 											</td>
 										</tr>
 									</table>

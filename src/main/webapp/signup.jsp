@@ -355,60 +355,16 @@ function createAutoComplete()
 	);
 }
 </script>
+<%@ include file="/WEB-INF/jspf/head.jspf" %>
 </head>
 
 <body onload="document.getElementById('theText').focus(); createAutoComplete();">
 
-<div id="menu">
-<table width="100%">
-	<tr>
-    	<td align="left">
-        	<div id="menuLeft">
-            	<a href="index.jsp" class="menuFont">Home</a> | <a href="aboutus.jsp" class="menuFont">About Us</a>
-            </div>
-        </td>
-        <td align="right">
-        <c:if test="${accountID == null}">
-        	<div id="menuRight">
-            	<table>
-                	<tr>
-                    	<form action="control/authenticate.jsp" method="post">
-                    	<td>
-                        	<input type="text" name="email" value="Email" class="cleardefault" style="font-style:italic; color:#666666" />
-                        </td>
-                        <td>
-                        	<input type="password" name="password" value="Password" class="cleardefault" style="font-style:italic; color:#666666" />
-                        </td>
-                        <td>
-                        	<input type="submit" name="Login" value="Login" />
-                            <input type="hidden" name="goodBrowser" value="true">
-                        </td>
-                        </form>
-                        <td class="menuFont">
-                        	<a href="signup.jsp">Sign In</a>
-                        </td>
-                        <td>
-                        	<div style="margin-left:20px;font-style:italic; font-size:10px">
-                        		Real Basis LLC copyright @ 2011
-                        	</div>
-                        </td>
-                    </tr>
-                </table>
-			</div>
-        </c:if>
-        </td>
-    </tr>
-</table>
-</div>
+<%@ include file="/WEB-INF/jspf/masthead.jspf" %>
 
 <div id="menu2">
 	<table style="width:700px">
     	<tr>
-            <td valign="middle" style="width:280px;">
-               	<div id="menuLeftb">
-	   				<a href="index.jsp"><img style="border:none; text-decoration:none" src="images/buildtrees_logo2.png"></a>
-		        </div>
-            </td>
 			<td valign="middle" align="left">
 				<h3 style="text-transform:uppercase">Create an account to build your family tree</h3>
 			</td>
@@ -481,6 +437,7 @@ function createAutoComplete()
 	</table>
 </div>
 
+<%@ include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 
 </html>

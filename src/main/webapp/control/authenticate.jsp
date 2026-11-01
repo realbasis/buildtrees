@@ -55,6 +55,8 @@ if(success) {
     session.setAttribute("myname", accountMap.get("Name"));
     session.setAttribute("notifyMe", accountMap.get("Notify"));
     session.setAttribute("flag", new Integer(7));
+    // events.jsp / zmainRefreshFrag.jsp expect it (the older authenticate3.jsp set it too)
+    session.setAttribute("sharersFlag", new Integer(-1));
     session.setMaxInactiveInterval(-1);
     
     // set cookie if required

@@ -83,6 +83,24 @@ password from the settings above, so nothing has to be edited in Tomcat's own fi
 user's home (`~tomcat/.buildtrees/buildtrees.properties`) or pass
 `-Dbuildtrees.config=/etc/buildtrees/buildtrees.properties` in `setenv.sh`.
 
+## User interface
+
+All pages share one design system: **`src/main/webapp/css/buildtrees.css`**.
+
+* `WEB-INF/jspf/head.jspf` – viewport, fonts (Literata + Atkinson Hyperlegible from
+  Google Fonts, with Georgia/Arial fallbacks) and the stylesheet. Include it as the
+  **last** line before `</head>` so it overrides older page styles.
+* `WEB-INF/jspf/masthead.jspf` / `footer.jspf` – header and footer for pages that do not
+  use the old Dreamweaver templates (home, login, sign up, about, details, new family).
+* Pages built from the old templates (`privateLinked.dwt` / `publicLinked.dwt`) keep their
+  markup; the stylesheet restyles `#banner`, `#content`, `#vmenu`, tables, forms and the
+  2008-era inline colours. The account menus (`*HeadFrag*.jsp`) are `<nav class="appnav">`.
+* Images are unchanged. The logo's mint background (`#99FF99`) is part of the image, so the
+  masthead uses the same mint.
+
+New page? Start from `index.jsp`: include `control/stdTags.jspf`, `head.jspf`,
+`masthead.jspf` and `footer.jspf`, and use the classes in `buildtrees.css`.
+
 ## What changed during the merge
 
 **Platform**
